@@ -10,11 +10,11 @@ module ApplicationHelper
         title: 'Games'
       },
       {
-        url: articles_path,
+        url: topic_path(1),
         title: 'Articles'
       },
       {
-        url: root_path,
+        url: topic_path(2),
         title: 'Events'
       },
       {

@@ -7,10 +7,12 @@
   <div class="row"></div>
     <div class="col-md-12">
       <h1><%= @article.title %></h1>
+      <p><%= @article.topic.title %></p>
 
       <nav class="breadcrumb">
         <%= link_to 'Home', root_path, class: 'breadcrumb-item' %>
-        <%= link_to 'Articles', articles_path, class: 'breadcrumb-item' %>
+        <%= link_to 'News', articles_path, class: 'breadcrumb-item' %>
+        <%= link_to @article.topic.title, topic_path(@topic), class: 'breadcrumb-item' %>
 
         <span class="breadcrumb-item active"><%= @article.title %></span>
 

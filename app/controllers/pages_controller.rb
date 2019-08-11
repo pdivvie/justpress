@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def news
-    @articles = Article.all
+    @articles = Article.all.featured_news
   end
 end
