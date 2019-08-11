@@ -1,24 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="container article-container">
+  <div class="row">
+    <div class="col-md-12">
+      <%= image_tag @article.main_image.url, width: '100%' %>
+    </div>
+  </div>
+  <div class="row"></div>
+    <div class="col-md-12">
+      <h1><%= @article.title %></h1>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+      <nav class="breadcrumb">
+        <%= link_to 'Home', root_path, class: 'breadcrumb-item' %>
+        <%= link_to 'Articles', articles_path, class: 'breadcrumb-item' %>
 
-<p>
-  <strong>Body:</strong>
-  <%= @article.body %>
-</p>
+        <span class="breadcrumb-item active"><%= @article.title %></span>
 
-<p>
-  <strong>Main image:</strong>
-  <%= image_tag @article.main_image.url, width: '100%' %>
-</p>
+      </nav>
 
-<p>
-  <strong>Thumb image:</strong>
-  <%= image_tag @article.thumb_image.url, width: '100%' %>
-</p>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+      <p><%= @article.body %></p>
+    </div>
+  </div>
+</div>
