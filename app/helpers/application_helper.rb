@@ -10,7 +10,7 @@ module ApplicationHelper
         title: 'Games'
       },
       {
-        url: root_path,
+        url: articles_path,
         title: 'Articles'
       },
       {
