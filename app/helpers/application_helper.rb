@@ -11,15 +11,19 @@ module ApplicationHelper
       },
       {
         url: root_path,
+        title: 'Articles'
+      },
+      {
+        url: root_path,
+        title: 'Events'
+      },
+      {
+        url: root_path,
         title: 'Match Database'
       },
       {
         url: root_path,
-        title: 'Local Players'
-      },
-      {
-        url: root_path,
-        title: 'Articles'
+        title: 'Local Player Profiles'
       }
     ]
   end
