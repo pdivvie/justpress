@@ -64,3 +64,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 gem 'mini_magick', '~> 4.9', '>= 4.9.5'
 gem 'carrierwave-aws', '~> 1.3'
+
+# integration of markdown
+gem 'redcarpet', '~> 3.5'
+gem 'coderay', '~> 1.1', '>= 1.1.2'
