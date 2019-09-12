@@ -64,6 +64,8 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "safgc_app_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = { :host => 'https://safgc.herokuapp.com' }
+  config.action_mailer.smtp_settings = { address: "https://safgc.herokuapp.com" }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

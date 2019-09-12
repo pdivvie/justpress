@@ -68,3 +68,6 @@ gem 'carrierwave-aws', '~> 1.3'
 # integration of markdown
 gem 'redcarpet', '~> 3.5'
 gem 'coderay', '~> 1.1', '>= 1.1.2'
+
+#user
+gem 'devise', '~> 4.7', '>= 4.7.1'
