@@ -2,7 +2,7 @@ class MatchesController < ApplicationController
   before_action :set_match, only: [:show, :edit, :update, :destroy]
 
   def index
-    @matches = Match.all
+      @matches = Match.all
   end
 
   def show
@@ -52,6 +52,6 @@ class MatchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def match_params
-      params.require(:match).permit(:link, :game_id)
+      params.require(:match).permit(:link, :game_id, :player_1, :player_2)
     end
 end
