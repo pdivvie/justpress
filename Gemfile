@@ -71,3 +71,6 @@ gem 'coderay', '~> 1.1', '>= 1.1.2'
 
 #user
 gem 'devise', '~> 4.7', '>= 4.7.1'
+
+#icons
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
