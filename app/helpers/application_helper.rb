@@ -16,7 +16,7 @@ module ApplicationHelper
         title: 'Home'
       },
       {
-        url: root_path,
+        url: games_path,
         title: 'Games'
       },
       {
