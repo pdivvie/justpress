@@ -28,7 +28,7 @@ module ApplicationHelper
         title: 'Events'
       },
       {
-        url: root_path,
+        url: matches_path,
         title: 'Match Database'
       },
       {
