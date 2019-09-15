@@ -32,7 +32,7 @@ module ApplicationHelper
         title: 'Match Database'
       },
       {
-        url: root_path,
+        url: users_admin_index_path,
         title: 'Local Player Profiles'
       }
     ]
