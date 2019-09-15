@@ -2,7 +2,7 @@ class MatchesController < ApplicationController
   before_action :set_match, only: [:show, :edit, :update, :destroy]
 
   def index
-    @matches = Match.all
+    @matches = Match.all.players
   end
 
   def show
@@ -20,7 +20,7 @@ class MatchesController < ApplicationController
 
     respond_to do |format|
       if @match.save
-        format.html { redirect_to @match, notice: 'Match was successfully created.' }
+        format.html { redirect_to matches_url, notice: 'Match was successfully created.' }
       else
         format.html { render :new }
       end
@@ -30,7 +30,7 @@ class MatchesController < ApplicationController
   def update
     respond_to do |format|
       if @match.update(match_params)
-        format.html { redirect_to @match, notice: 'Match was successfully updated.' }
+        format.html { redirect_to matches_url, notice: 'Match was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -52,6 +52,6 @@ class MatchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def match_params
-      params.require(:match).permit(:link, :game_id, :player_1, :player_2)
+      params.require(:match).permit(:link, :game_id, { :player_ids => [] }, :P1)
     end
 end

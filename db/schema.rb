@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_15_154138) do
+ActiveRecord::Schema.define(version: 2019_09_15_162703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,19 +40,17 @@ ActiveRecord::Schema.define(version: 2019_09_15_154138) do
     t.index ["game_id"], name: "index_matches_on_game_id"
   end
 
+  create_table "matches_players", id: false, force: :cascade do |t|
+    t.bigint "player_id", null: false
+    t.bigint "match_id", null: false
+    t.index ["match_id", "player_id"], name: "index_matches_players_on_match_id_and_player_id"
+    t.index ["player_id", "match_id"], name: "index_matches_players_on_player_id_and_match_id"
+  end
+
   create_table "players", force: :cascade do |t|
     t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "players_matches", id: false, force: :cascade do |t|
-    t.bigint "player_id"
-    t.bigint "match_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["match_id"], name: "index_players_matches_on_match_id"
-    t.index ["player_id"], name: "index_players_matches_on_player_id"
   end
 
   create_table "topics", force: :cascade do |t|

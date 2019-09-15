@@ -28,6 +28,17 @@
     %>
   </div>
 
+  <div class="form-group">
+
+    <% Player.all.each do |player| %>
+      <%= hidden_field_tag "match[player_ids][]", nil %>
+      <%= check_box_tag "match[player_ids][]", player.id, @match.player_ids.include?(player.id), id: dom_id(player) %>
+      <%= label_tag dom_id(player), player.username %><br>
+
+    <% end %>
+
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

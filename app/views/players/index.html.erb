@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Players</h1>
+
+<%= link_to 'New Player', new_player_path %>
+
+<div class="card">
+  <div class="row">
+    <% @players.each do |player| %>
+      <% player.matches.each do |match| %>
+        <div class="col-md-3">
+          <%= player.username %>
+        </div>
+        <div class="col-md-2">
+          <% if match.player_ids[0] != nil %>
+            <%= link_to match.players[0].username, players_path(P1: match.players[0].username ) %>
+          <% else %>
+            Unknown Player
+          <% end %>
+        </div>
+
+        <div class="col-md-1">
+          vs.
+        </div>
+
+        <div class="col-md-2">
+          <% if match.player_ids[1] != nil %>
+            <%= link_to match.players[1].username, players_path(P1: match.players[1].username) %>
+          <% else %>
+            Unknown Player
+          <% end %>
+        </div>
+
+        <div class="col-md-2">
+        </div>
+
+        <div class="col-md-2">
+          <p><%= link_to fa_icon('play'), player.matches.first.link %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-1">
+          <%= link_to 'Show', player %>
+        </div>
+        <div class="col-md-1">
+          <%= link_to 'Edit', edit_player_path(player) %>
+        </div>
+        <div class="col-md-1">
+          <%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+        <div class="col-md-9">
+      </div>
+
+      <% end %>
+    <% end %>
+</div>
+
+
+
