@@ -6,22 +6,6 @@
   <hr>
 
   <nav class="breadcrumb">
-    <%= link_to 'Home', root_path, class: 'breadcrumb-item' %>
-
-    <span class="breadcrumb-item active">Matches</span>
-
-    <span class="ml-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Player 1
-        </a>
-        <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdownMenuLink">
-          <% User.order('username ASC').each do |user| %>
-
-            <%= link_to user.username, matches_path(player_1: user.username), class: "dropdown-item" %>
-          <% end %>
-        </div>
-      </li>
-    </span>
 
   </nav>
 
@@ -33,7 +17,6 @@
         </div>
 
         <div class="col-md-2">
-          <p><%= link_to match.player_1, matches_path(player_1: match.player_1) %></p>
         </div>
 
         <div class="col-md-2">
@@ -41,7 +24,6 @@
         </div>
 
         <div class="col-md-1">
-          <p><%= match.player_2 %></p>
         </div>
 
         <div class="col-md-2">

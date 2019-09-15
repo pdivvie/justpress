@@ -28,16 +28,6 @@
     %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :player_1 %>
-    <%= form.collection_select(:player_1, User.all, :username, :username) %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :player_2 %>
-    <%= form.collection_select(:player_2, User.all, :username, :username) %>
-  </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>
