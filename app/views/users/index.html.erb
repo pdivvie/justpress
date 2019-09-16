@@ -1,23 +1,25 @@
-<h1>Local Players</h1>
+<div class="container">
+  <h1>Local Players</h1>
 
-<div class="row">
-  <% @users.order('username ASC').each do |user| %>
-  <div class="col-md-6">
-    <div class="card user-card">
-      <p>Username: <%= user.username %></p>
-      <% if user.steamid != '' %>
-        <p>Steam ID: <%= user.steamid %></p>
-      <% end %>
-      <% if user.psnid != '' %>
-        <p>PSN ID: <%= user.psnid %></p>
-      <% end %>
-      <% if user.gamertag != '' %>
-        <p>Xbox Gamertag: <%= user.gamertag %></p>
-      <% end %>
+  <div class="row">
+    <% @users.order('username ASC').each do |user| %>
+    <div class="col-md-6">
+      <div class="card user-card">
+        <p>Username: <%= user.username %></p>
+        <% if user.steamid != '' %>
+          <p>Steam ID: <%= user.steamid %></p>
+        <% end %>
+        <% if user.psnid != '' %>
+          <p>PSN ID: <%= user.psnid %></p>
+        <% end %>
+        <% if user.gamertag != '' %>
+          <p>Xbox Gamertag: <%= user.gamertag %></p>
+        <% end %>
+      </div>
+      <br>
     </div>
-    <br>
+    <% end %>
   </div>
-  <% end %>
 </div>
 
 

@@ -33,7 +33,7 @@
   <% @matches.all.each do |match| %>
     <div class="row">
       <div class="col-md-3">
-        <p><%= link_to match.game.title, game_path(match.game_id) %></p>
+        <p><%= link_to match.game.title, game_path(match.game_id) unless match.game_id == nil %></p>
       </div>
 
       <div class="col-md-2">

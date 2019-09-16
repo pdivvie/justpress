@@ -1,13 +1,57 @@
-<p id="notice"><%= notice %></p>
-
 <div class="card img-fluid" style="width:1400px">
-  <img class="card-img-top" src=<%= @game.cover_image %> alt="Card image" style="width:100%">
+  <img class="card-img-top" src=<%= @game.cover_image %> alt="Card image" style="height:787.50px">
   <div class="card-img-overlay">
     <h4 class="card-title"><%= @game.title %></h4>
     <p class="card-text"><%= @game.description %></p>
     <p><a href="#" class="btn btn-secondary">Resources</a></p>
     <p><a href="#" class="btn btn-secondary">Local Matches</a></p>
     <p><a href="#" class="btn btn-secondary">Events</a></p>
+    <br>
+    <br>
+    <br>
+    <h4>Recent Matches</h4>
+    <hr>
+    <div class="card matches-card">
+      <% @recent_vods.each do |match| %>
+        <div class="row">
+          <div class="col-md-3">
+            <p><%= link_to match.game.title, game_path(match.game_id) %></p>
+          </div>
+
+          <div class="col-md-2">
+            <% if match.player_ids[0] != nil %>
+              <%= link_to match.players[0].username, players_path(P1: match.players[0].username ) %>
+            <% else %>
+              Unknown Player
+            <% end %>
+          </div>
+
+          <div class="col-md-1">
+            <p>vs</p>
+          </div>
+
+          <div class="col-md-2">
+            <% if match.player_ids[1] != nil %>
+              <%= link_to match.players[1].username, players_path(P1: match.players[1].username) %>
+            <% else %>
+              Unknown Player
+            <% end %>
+          </div>
+
+          <div class="col-md-2">
+
+          </div>
+
+          <div class="col-md-2">
+            <%= link_to fa_icon('play'), match.link, target: :_blank %>
+            <%= link_to fa_icon('pencil'), edit_match_path(match) %>
+            <%= link_to fa_icon('trash'), match, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </div>
+
+        <hr>
+      <% end %>
+    </div>
   </div>
 </div>
 

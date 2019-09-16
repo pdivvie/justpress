@@ -6,6 +6,7 @@ class GamesController < ApplicationController
   end
 
   def show
+    @recent_vods = @game.matches.order('created_at DESC').limit(4)
   end
 
   def new

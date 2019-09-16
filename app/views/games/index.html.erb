@@ -1,34 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <%= link_to 'New Game', new_game_path %>
 
-<%= link_to 'New Game', new_game_path %>
+  <hr>
 
-<hr>
+  <div class="row">
+    <% @games.each do |game| %>
 
-<div class="row">
+      <div class="col-md-6">
 
-  <% @games.each do |game| %>
+        <div class="card img-fluid" style="width:500px">
+          <img class="card-img-top" src='<%= game.cover_image %>' alt="Card image" style="height:281.25px">
+          <div class="card-img-overlay">
+            <h4 class="card-title"><%= game.title %></h4>
+            <p class="card-text"><%= game.description %></p>
+            <%= link_to fa_icon('eye'), game %>
+            <%= link_to fa_icon('pencil'), edit_game_path(game) %>
+            <%= link_to fa_icon('trash'), game, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </div>
 
-    <div class="col-md-6">
+        <hr>
 
-      <div class="card img-fluid" style="width:500px">
-      <img class="card-img-top" src='<%= game.cover_image %>' alt="Card image" style="width:100%">
-      <div class="card-img-overlay">
-        <h4 class="card-title"><%= game.title %></h4>
-        <p class="card-text"><%= game.description %></p>
-        <%= link_to fa_icon('eye'), game %>
-        <%= link_to fa_icon('pencil'), edit_game_path(game) %>
-        <%= link_to fa_icon('trash'), game, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </div>
+
     </div>
 
-    <hr>
 
-    </div>
-
-  <% end %>
-
+    <% end %>
   </div>
-
+</div>
 
 
 
