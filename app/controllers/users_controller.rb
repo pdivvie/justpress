@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show]
 
   def index
     @users = User.all
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:match).permit(:username)
+    params.require(:match).permit(:username, :steamid, :psnid, :gamertag)
   end
 
 end

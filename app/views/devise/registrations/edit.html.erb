@@ -13,6 +13,21 @@
     <%= f.text_field :username %>
   </div>
 
+    <div class="field">
+      <%= f.label :steamid %><br />
+      <%= f.text_field :steamid %>
+    </div>
+
+  <div class="field">
+    <%= f.label :psnid %><br />
+    <%= f.text_field :psnid %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gamertag %><br />
+    <%= f.text_field :gamertag %>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>

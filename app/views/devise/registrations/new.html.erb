@@ -14,6 +14,21 @@
   </div>
 
   <div class="field">
+    <%= f.label :steamid %><br />
+    <%= f.text_field :steamid %>
+  </div>
+
+  <div class="field">
+    <%= f.label :psnid %><br />
+    <%= f.text_field :psnid %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gamertag %><br />
+    <%= f.text_field :gamertag %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
