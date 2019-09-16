@@ -15,25 +15,8 @@
 
       <%= render "shared/application_nav"%>
 
-      <div class="fluid-container">
-        <div class="row">
-          <div class="col-lg-3">
-            <div class="offset-sm-1 app-sidebar d-none d-lg-block">
-
-            </div>
-          </div>
-
-          <div class="col-lg-8">
-            <%= yield %>
-          </div>
-
-          <div class="col-lg-1">
-          </div>
-        </div>
-
-        <div class="offset-sm-1 app-sidebar d-block d-lg-none">
-
-        </div>
+      <div class="container">
+        <%= yield %>
       </div>
 
       <%= render "shared/application_footer" %>

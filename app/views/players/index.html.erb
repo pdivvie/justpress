@@ -1,8 +1,33 @@
-<p id="notice"><%= notice %></p>
-
-<h1><%= @P1user %></h1>
-
 <%= link_to 'New Player', new_player_path %>
+
+<hr>
+
+<nav class="breadcrumb">
+  <%= link_to 'Match Database', matches_path, class: 'breadcrumb-item' %>
+  <span class="breadcrumb-item active"><%= @P1user %>'s Matches</span>
+  <span class="ml-auto">
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Player 1
+      </a>
+      <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdownMenuLink">
+        <% Player.order('username ASC').each do |player| %>
+          <%= link_to player.username, players_path(P1: player.username ), class: "dropdown-item" %>
+        <% end %>
+      </div>
+    </li>
+  </span>
+  <span class="ml-auto">
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Player 1
+      </a>
+      <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdownMenuLink">
+        <% Player.order('username ASC').each do |player| %>
+          <%= link_to player.username, players_path(P1: player.username ), class: "dropdown-item" %>
+        <% end %>
+      </div>
+    </li>
+  </span>
+</nav>
 
 <div class="card">
 
@@ -10,7 +35,7 @@
       <% player.matches.each do |match| %>
         <div class="row">
           <div class="col-md-3">
-            <p><%= link_to match.game.title, games_path(match.game_id) %></p>
+            <p><%= link_to match.game.title, game_path(match.game_id) %></p>
           </div>
           <div class="col-md-2">
             <% if match.player_ids[0] != nil %>
