@@ -30,7 +30,7 @@
 </nav>
 
 <div class="card">
-  <% @matches.each do |match| %>
+  <% @matches.all.each do |match| %>
     <div class="row">
       <div class="col-md-3">
         <p><%= link_to match.game.title, game_path(match.game_id) %></p>
@@ -65,16 +65,29 @@
       </div>
     </div>
 
+     <div class="row">
+      <div class="col-md-1">
+        <p><%= link_to 'Show', match %></p>
+      </div>
 
+      <div class="col-md-1">
+        <p><%= link_to 'Edit', edit_match_path(match) %></p>
+      </div>
+
+      <div class="col-md-1">
+        <p><%= link_to 'Destroy', match, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      </div>
+
+      <div class="col-md-9"></div>
+
+    </div>
 
     <hr>
 
   <% end %>
 </div>
 
-</div>
 
-<br>
 
 
 
