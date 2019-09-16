@@ -3,6 +3,16 @@
 
 body {
   padding-top: 80px;
+  background-color: #2E2E2E;
+  color: white;
+}
+
+body a {
+  color: white;
+}
+
+body a:hover {
+  color: white;
 }
 
 .footer {
@@ -11,9 +21,47 @@ body {
 }
 
 .card {
+  background-color: #2E2E2E;
+}
+
+.matches-card {
   padding: 10px 0px 0px 10px;
 }
 
 .fa{
   font-size: 30px;
+  color: #ff1744;
+}
+
+.bg-dark {
+  background-color: #ff1744 !important;
+}
+
+.breadcrumb {
+  background-color: #ff1744;
+}
+
+.breadcrumb-item.active {
+  color: white;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #EBEBEB;
+}
+
+.navbar-dark .navbar-nav .show > .nav-link, .navbar-dark .navbar-nav .active > .nav-link, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .nav-link.active {
+  color: #FFFFFF;
+  vertical-align: middle;
+  content: "";
+  border-right: .3rem solid transparent;
+  border-bottom: .3rem solid;
+  border-left: .3rem solid transparent;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
+  color: #FFFFFF;
+}
+
+.jumbotron {
+  background-color: #ff1744;
 }

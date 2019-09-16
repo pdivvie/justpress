@@ -1,4 +1,4 @@
-<%= link_to 'New Match', new_match_path %>
+<%= link_to fa_icon('plus'), new_match_path %>
 
 <hr>
 
@@ -29,7 +29,7 @@
   </span>
 </nav>
 
-<div class="card">
+<div class="card matches-card">
   <% @matches.all.each do |match| %>
     <div class="row">
       <div class="col-md-3">
@@ -67,15 +67,15 @@
 
      <div class="row">
       <div class="col-md-1">
-        <p><%= link_to 'Show', match %></p>
+        <p><%= link_to fa_icon('eye'), match %></p>
       </div>
 
       <div class="col-md-1">
-        <p><%= link_to 'Edit', edit_match_path(match) %></p>
+        <p><%= link_to fa_icon('pencil'), edit_match_path(match) %></p>
       </div>
 
       <div class="col-md-1">
-        <p><%= link_to 'Destroy', match, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        <p><%= link_to fa_icon('trash'), match, method: :delete, data: { confirm: 'Are you sure?' } %></p>
       </div>
 
       <div class="col-md-9"></div>

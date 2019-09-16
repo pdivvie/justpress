@@ -1,27 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Games</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @games.each do |game| %>
-      <tr>
-        <td><%= game.title %></td>
-        <td><%= link_to 'Show', game %></td>
-        <td><%= link_to 'Edit', edit_game_path(game) %></td>
-        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
 <%= link_to 'New Game', new_game_path %>
+
+
+    <% @games.each do |game| %>
+
+      <p><%= game.title %></p>
+      <div class="card img-fluid" style="width:500px">
+      <img class="card-img-top" src='<%= game.cover_image %>' alt="Card image" style="width:100%">
+      <div class="card-img-overlay">
+        <h4 class="card-title"><%= game.title %></h4>
+        <p class="card-text"><%= game.description %></p>
+        <%= link_to fa_icon('eye'), game %>
+        <%= link_to fa_icon('pencil'), edit_game_path(game) %>
+        <%= link_to fa_icon('trash'), game, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+
+    <hr>
+
+    <% end %>
+
+
+
+
+
+

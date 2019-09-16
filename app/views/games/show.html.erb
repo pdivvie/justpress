@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @game.title %>
-</p>
+<div class="card img-fluid" style="width:1400px">
+  <img class="card-img-top" src=<%= @game.cover_image %> alt="Card image" style="width:100%">
+  <div class="card-img-overlay">
+    <h4 class="card-title"><%= @game.title %></h4>
+    <p class="card-text"><%= @game.description %></p>
+    <p><a href="#" class="btn btn-secondary">Resources</a></p>
+    <p><a href="#" class="btn btn-secondary">Local Matches</a></p>
+    <p><a href="#" class="btn btn-secondary">Events</a></p>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
