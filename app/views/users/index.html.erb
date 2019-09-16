@@ -1,10 +1,24 @@
-<p id="notice"><%= notice %></p>
+<h1>Local Players</h1>
 
-<h1>Users</h1>
+<div class="row">
+  <% @users.order('username ASC').each do |user| %>
+  <div class="col-md-6">
+    <div class="card user-card">
+      <p>Username: <%= user.username %></p>
+      <% if user.steamid != '' %>
+        <p>Steam ID: <%= user.steamid %></p>
+      <% end %>
+      <% if user.psnid != '' %>
+        <p>PSN ID: <%= user.psnid %></p>
+      <% end %>
+      <% if user.gamertag != '' %>
+        <p>Xbox Gamertag: <%= user.gamertag %></p>
+      <% end %>
+    </div>
+    <br>
+  </div>
+  <% end %>
+</div>
 
-<% @users.each do |user| %>
-  <%= user.username %>
-  <p><%= link_to 'Show', users_admin_path(user) %></p>
-<% end %>
 
 

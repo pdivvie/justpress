@@ -2,10 +2,14 @@
 
 <%= link_to 'New Game', new_game_path %>
 
+<hr>
 
-    <% @games.each do |game| %>
+<div class="row">
 
-      <p><%= game.title %></p>
+  <% @games.each do |game| %>
+
+    <div class="col-md-6">
+
       <div class="card img-fluid" style="width:500px">
       <img class="card-img-top" src='<%= game.cover_image %>' alt="Card image" style="width:100%">
       <div class="card-img-overlay">
@@ -19,7 +23,11 @@
 
     <hr>
 
-    <% end %>
+    </div>
+
+  <% end %>
+
+  </div>
 
 
 

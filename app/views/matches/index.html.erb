@@ -61,25 +61,10 @@
       </div>
 
       <div class="col-md-2">
-        <p><%= link_to fa_icon('play'), match.link %></p>
+        <%= link_to fa_icon('play'), match.link, target: :_blank %>
+        <%= link_to fa_icon('pencil'), edit_match_path(match) %>
+        <%= link_to fa_icon('trash'), match, method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
-    </div>
-
-     <div class="row">
-      <div class="col-md-1">
-        <p><%= link_to fa_icon('eye'), match %></p>
-      </div>
-
-      <div class="col-md-1">
-        <p><%= link_to fa_icon('pencil'), edit_match_path(match) %></p>
-      </div>
-
-      <div class="col-md-1">
-        <p><%= link_to fa_icon('trash'), match, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-      </div>
-
-      <div class="col-md-9"></div>
-
     </div>
 
     <hr>
