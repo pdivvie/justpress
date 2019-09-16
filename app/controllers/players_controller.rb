@@ -51,13 +51,12 @@ class PlayersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_player
-      @player = Player.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def match_params
-      params.require(:player).permit(:username, { :match_ids => [] }, :P1)
-    end
+  def set_player
+    @player = Player.find(params[:id])
+  end
+
+  def match_params
+    params.require(:player).permit(:username, { :match_ids => [] }, :P1)
+  end
 end
