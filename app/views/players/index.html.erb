@@ -31,7 +31,7 @@
 
 <div class="card">
 
-    <% @players.each do |player| %>
+    <% @players.all.order('created_at DESC').each do |player| %>
       <% player.matches.each do |match| %>
         <div class="row">
           <div class="col-md-3">

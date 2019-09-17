@@ -30,7 +30,7 @@
 </nav>
 
 <div class="card matches-card">
-  <% @matches.all.each do |match| %>
+  <% @matches.order('created_at DESC').each do |match| %>
     <div class="row">
       <div class="col-md-3">
         <p><%= link_to match.game.title, game_path(match.game_id) unless match.game_id == nil %></p>
