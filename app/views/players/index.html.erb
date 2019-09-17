@@ -8,12 +8,10 @@
   <span class="breadcrumb-item active"><%= @P1user %>'s Matches</span>
   <span class="ml-auto">
     <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select A Character(future feature)
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select A Character (future feature)
       </a>
       <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdownMenuLink">
-        <% Player.order('username ASC').each do |player| %>
-          <%= link_to player.username, players_path(P1: player.username ), class: "dropdown-item" %>
-        <% end %>
+
       </div>
     </li>
   </span>
