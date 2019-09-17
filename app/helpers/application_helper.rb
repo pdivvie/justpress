@@ -34,6 +34,10 @@ module ApplicationHelper
       {
         url: users_admin_index_path,
         title: 'Local Player Profiles'
+      },
+      {
+        url: faq_path,
+        title: 'FAQ'
       }
     ]
   end

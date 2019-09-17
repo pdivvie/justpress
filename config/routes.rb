@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :articles
   resources :topics, only: [:show]
   root to: 'pages#news'
+  get 'faq', to: 'pages#faq'
 end
