@@ -1,5 +1,8 @@
 <div class="container">
+  <%= link_to fa_icon('file'), new_article_path %>
+  <hr>
   <div class="row text-center">
     <%= render partial: 'shared/article', collection: @articles %>
   </div>
+  <hr>
 </div>
