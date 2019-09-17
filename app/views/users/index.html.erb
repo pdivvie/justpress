@@ -7,7 +7,7 @@
       <div class="card user-card">
         <p>Username: <%= user.username %></p>
         <% if user.steamid != '' %>
-          <p>Steam ID: <%= link_to user.steamid, user.steamid %></p>
+          <p>Steam ID: <%= link_to user.steamid, user.steamid, target: :_blank %></p>
         <% end %>
         <% if user.psnid != '' %>
           <p>PSN ID: <%= link_to user.psnid %></p>
