@@ -1,5 +1,5 @@
 <div class="container">
-  <%= link_to 'New Game', new_game_path %>
+  <%= link_to fa_icon('gamepad'), new_game_path %>
 
   <hr>
 
@@ -8,11 +8,21 @@
 
       <div class="col-md-6">
 
-        <div class="card img-fluid" style="width:500px">
+        <div class="card img-fluid d-none d-xl-block" style="width:500px">
           <img class="card-img-top" src='<%= game.cover_image %>' alt="Card image" style="height:281.25px">
           <div class="card-img-overlay">
             <h4 class="card-title"><%= game.title %></h4>
             <p class="card-text"><%= game.description %></p>
+            <%= link_to fa_icon('eye'), game %>
+            <%= link_to fa_icon('pencil'), edit_game_path(game) %>
+            <%= link_to fa_icon('trash'), game, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </div>
+
+        <div class="card img-fluid d-none d-block d-xl-none" style="width:100%">
+          <img class="card-img-top" src='<%= game.cover_image %>' alt="Card image" style="height:100%">
+          <div class="card-img-overlay">
+            <h4 class="card-title"><%= game.title %></h4>
             <%= link_to fa_icon('eye'), game %>
             <%= link_to fa_icon('pencil'), edit_game_path(game) %>
             <%= link_to fa_icon('trash'), game, method: :delete, data: { confirm: 'Are you sure?' } %>
