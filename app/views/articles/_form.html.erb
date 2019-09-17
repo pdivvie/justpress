@@ -11,14 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, rows: 15, class: 'form-control' %>
   </div>
 
   <div class="form-group">
@@ -26,17 +26,17 @@
     <%= form.select :topic_id, Topic.all.collect { |topic| [ topic.title, topic.id ] }, include_blank: true, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :main_image %>
     <%= form.file_field :main_image %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :thumb_image %>
     <%= form.file_field :thumb_image %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit 'Submit', class: 'btn btn-dark' %>
   </div>
 <% end %>
