@@ -44,7 +44,7 @@
 
   <div class="form-group">
 
-    <% Player.all.each do |player| %>
+    <% Player.all.order('username ASC').each do |player| %>
       <%= hidden_field_tag "match[player_ids][]", nil %>
       <%= check_box_tag "match[player_ids][]", player.id, @match.player_ids.include?(player.id), id: dom_id(player) %>
       <%= label_tag dom_id(player), player.username %><br>
