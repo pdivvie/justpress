@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   rolify
 
+  has_many :matches
+
   after_create :assign_default_role
 
   def assign_default_role

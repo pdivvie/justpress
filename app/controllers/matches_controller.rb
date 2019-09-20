@@ -3,6 +3,7 @@ class MatchesController < ApplicationController
 
   def index
     @matches = Match.all
+    @players = Player.all
   end
 
   def show
@@ -13,10 +14,12 @@ class MatchesController < ApplicationController
   end
 
   def edit
+    authorize @match
   end
 
   def create
     @match = Match.new(match_params)
+    @match.user_id = current_user.id
 
     respond_to do |format|
       if @match.save
@@ -28,6 +31,8 @@ class MatchesController < ApplicationController
   end
 
   def update
+    authorize @match
+
     respond_to do |format|
       if @match.update(match_params)
         format.html { redirect_to matches_url, notice: 'Match was successfully updated.' }
@@ -38,6 +43,8 @@ class MatchesController < ApplicationController
   end
 
   def destroy
+    authorize @match
+
     @match.destroy
     respond_to do |format|
       format.html { redirect_to matches_url, notice: 'Match was successfully destroyed.' }

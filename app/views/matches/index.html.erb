@@ -1,5 +1,7 @@
 <%= link_to fa_icon('plus'), new_match_path %>
-<%= link_to fa_icon('user-plus'), new_player_path %>
+<% if policy(@players).new? %>
+  <%= link_to fa_icon('user-plus'), new_player_path %>
+<% end %>
 
 <hr>
 
@@ -61,8 +63,10 @@
 
       <div class="col-md-2">
         <%= link_to fa_icon('play'), match.link, target: :_blank %>
-        <%= link_to fa_icon('pencil'), edit_match_path(match) %>
-        <%= link_to fa_icon('trash'), match, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% if policy(match).update? %>
+          <%= link_to fa_icon('pencil'), edit_match_path(match) %>
+          <%= link_to fa_icon('trash'), match, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
       </div>
     </div>
 

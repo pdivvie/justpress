@@ -16,13 +16,16 @@ class PlayersController < ApplicationController
 
   def new
     @player = Player.new
+    authorize @player
   end
 
   def edit
+    authorize @player
   end
 
   def create
     @player = Player.new(match_params)
+    authorize @player
 
     respond_to do |format|
       if @player.save
@@ -34,6 +37,8 @@ class PlayersController < ApplicationController
   end
 
   def update
+    authorize @player
+
     respond_to do |format|
       if @player.update(match_params)
         format.html { redirect_to @player, notice: 'Player was successfully updated.' }
@@ -44,6 +49,8 @@ class PlayersController < ApplicationController
   end
 
   def destroy
+    authorize @player
+
     @player.destroy
     respond_to do |format|
       format.html { redirect_to matches_url, notice: 'Player was successfully destroyed.' }

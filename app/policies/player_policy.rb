@@ -1,9 +1,9 @@
-class TopicPolicy < ApplicationPolicy
-  attr_reader :user, :topic
+class PlayerPolicy < ApplicationPolicy
+  attr_reader :user, :player
 
-  def initialize(user, topic)
+  def initialize(user, player)
     @user = user
-    @topic = topic
+    @player = player
   end
 
   def create?
