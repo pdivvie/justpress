@@ -6,7 +6,15 @@
   </div>
   <div class="row"></div>
     <div class="col-md-12">
-      <h1><%= @article.title %></h1>
+      <h1>
+        <%= @article.title %>
+        <small>
+          <% if policy(@article).update? %>
+            <%= link_to fa_icon('pencil'), edit_article_path(@article), :style=>'color:#FFFFFF;' %>
+            <%= link_to fa_icon('trash'), @article, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </small>
+      </h1>
 
       <nav class="breadcrumb">
         <%= link_to 'Home', root_path, class: 'breadcrumb-item' %>

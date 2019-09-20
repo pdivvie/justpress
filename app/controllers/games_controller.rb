@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
 
   def index
     @games = Game.all
@@ -11,13 +12,16 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
+    authorize @game
   end
 
   def edit
+    authorize @game
   end
 
   def create
     @game = Game.new(game_params)
+    authorize @game
 
     respond_to do |format|
       if @game.save
@@ -29,6 +33,8 @@ class GamesController < ApplicationController
   end
 
   def update
+    authorize @game
+
     respond_to do |format|
       if @game.update(game_params)
         format.html { redirect_to @game, notice: 'Game was successfully updated.' }
@@ -39,6 +45,8 @@ class GamesController < ApplicationController
   end
 
   def destroy
+    authorize @game
+
     @game.destroy
     respond_to do |format|
       format.html { redirect_to games_url, notice: 'Game was successfully destroyed.' }

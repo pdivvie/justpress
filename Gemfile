@@ -74,3 +74,7 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 
 #icons
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
+
+#authorization
+gem 'pundit', '~> 2.1'
+gem 'rolify', '~> 5.2'
