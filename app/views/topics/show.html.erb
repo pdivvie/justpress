@@ -1,5 +1,7 @@
 <div class="container">
-  <%= link_to fa_icon('file'), new_article_path %>
+  <% if policy(@topic).update? %>
+    <%= link_to fa_icon('file'), new_article_path %>
+  <% end %>
   <hr>
   <div class="row text-center">
     <%= render partial: 'shared/article', collection: @articles %>

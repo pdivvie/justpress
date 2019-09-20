@@ -7,6 +7,10 @@ class TopicsController < ApplicationController
 
   end
 
+  def create
+    authorize @topic
+  end
+
   private
 
   def set_topic
