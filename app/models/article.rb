@@ -9,5 +9,4 @@ class Article < ApplicationRecord
     limit(4)
   end
 
-
 end
