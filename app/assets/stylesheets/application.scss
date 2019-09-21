@@ -86,3 +86,39 @@ body a:hover {
   color: #ff1744;
   padding-bottom: 20px;
 }
+
+.style_image {
+  position: absolute;
+  height: 281.25px;
+  width: 500px;
+  z-index: -1;
+}
+
+.style_image_mobile {
+  height: 100%;
+  width: 100%;
+}
+
+.image_text {
+  z-index: 0;
+  position: absolute;
+}
+
+.image_icon {
+  z-index: 0;
+  position: absolute;
+  margin-top: 200px;
+  margin-left: 20px;
+}
+
+.image_icon_mobile {
+  z-index: 0;
+  position: absolute;
+  margin-top: 60px;
+  margin-left: 20px;
+}
+
+.image_link {
+  z-index: 0;
+  position: absolute;
+}

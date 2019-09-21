@@ -10,35 +10,52 @@
 
       <div class="col-md-6">
 
-        <div class="card img-fluid d-none d-xl-block" style="width:500px">
-          <img class="card-img-top" src='<%= game.cover_image %>' alt="Card image" style="height:281.25px">
-          <div class="card-img-overlay">
-            <h4 class="card-title"><%= game.title %></h4>
-            <p class="card-text"><%= game.description %></p>
-            <%= link_to fa_icon('eye'), game %>
-            <% if policy(game).update? %>
-              <%= link_to fa_icon('pencil'), edit_game_path(game) %>
-              <%= link_to fa_icon('trash'), game, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <div class="d-none d-xl-block">
+          <div class="card img-fluid" style="width:500px">
+            <%= link_to game, class: 'image_link' do %>
+              <%= image_tag game.cover_image, class: 'style_image' %>
+              <div class="card-img-overlay image_text" style="width:500px">
+                <h4 class="card-title"><%= game.title %></h4>
+                <p class="card-text"><%= game.description %></p>
+                <br>
+
+              </div>
+
+              <div class="image_icon">
+                <% if policy(game).update? %>
+                  <%= link_to fa_icon('pencil'), edit_game_path(game) %>
+                  <%= link_to fa_icon('trash'), game, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %>
+              </div>
             <% end %>
           </div>
         </div>
 
-        <div class="card img-fluid d-none d-block d-xl-none" style="width:100%">
-          <img class="card-img-top" src='<%= game.cover_image %>' alt="Card image" style="height:100%">
-          <div class="card-img-overlay">
-            <h4 class="card-title"><%= game.title %></h4>
-            <%= link_to fa_icon('eye'), game %>
-            <% if policy(game).update? %>
-              <%= link_to fa_icon('pencil'), edit_game_path(game) %>
-              <%= link_to fa_icon('trash'), game, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <div class="d-none d-block d-xl-none">
+          <div class="card img-fluid" style="height:180px">
+            <%= link_to game, class: 'image_link' do %>
+              <%= image_tag game.cover_image, class: 'style_image_mobile' %>
+              <div class="card-img-overlay image_text" >
+                <h4 class="card-title"><%= game.title %></h4>
+                <br>
+
+              </div>
+
+              <div class="image_icon_mobile">
+                <% if policy(game).update? %>
+                  <%= link_to fa_icon('pencil'), edit_game_path(game) %>
+                  <%= link_to fa_icon('trash'), game, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %>
+              </div>
             <% end %>
           </div>
         </div>
 
         <hr>
 
+      </div>
 
-    </div>
+      <br>
 
 
     <% end %>
