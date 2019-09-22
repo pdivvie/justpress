@@ -3,7 +3,7 @@
     <%= link_to fa_icon('gamepad'), new_game_path %>
   <% end %>
 
-  <hr>
+  <br>
 
   <div class="row">
     <% @games.each do |game| %>
@@ -29,10 +29,11 @@
               </div>
             <% end %>
           </div>
+
         </div>
 
         <div class="d-none d-block d-xl-none">
-          <div class="card img-fluid" style="height:180px">
+          <div class="card img-fluid" style="height:190px">
             <%= link_to game, class: 'image_link' do %>
               <%= image_tag game.cover_image, class: 'style_image_mobile' %>
               <div class="card-img-overlay image_text" >
@@ -49,9 +50,10 @@
               </div>
             <% end %>
           </div>
+          <br>
         </div>
 
-        <hr>
+
 
       </div>
 
