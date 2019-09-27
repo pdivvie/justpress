@@ -4,8 +4,7 @@
     <h4 class="card-title"><%= @game.title %></h4>
     <p class="card-text d-none d-xl-block"><%= @game.description %></p>
     <p><a href="#" class="btn btn-secondary">Resources</a></p>
-    <p><a href="#" class="btn btn-secondary">Local Matches</a></p>
-    <%= link_to 'Local Matches', matches_path(game_query: @game.id), class: 'btn btn-secondary' %>
+    <p><%= link_to 'Local Matches', matches_path(game_query: @game.id), class: 'btn btn-secondary' %></p>
     <p><a href="#" class="btn btn-secondary">Events</a></p>
     <br>
     <br>
