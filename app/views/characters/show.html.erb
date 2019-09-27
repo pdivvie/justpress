@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<img class="card-img-top d-none d-xl-block" src=<%= @character.icon %> alt="Card image" style="height:100%">
+
+<p>
+  <strong>Title:</strong>
+  <%= @character.title %>
+</p>
+
+<p>
+  <strong>Icon:</strong>
+  <%= @character.icon %>
+</p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @character.game %>
+</p>
+
+<%= link_to 'Edit', edit_character_path(@character) %> |
+<%= link_to 'Back', characters_path %>

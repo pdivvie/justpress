@@ -65,6 +65,6 @@ class MatchesController < ApplicationController
   end
 
   def match_params
-    params.require(:match).permit(:link, :game_id, { :player_ids => [] })
+    params.require(:match).permit(:link, :game_id, { :player_ids => [] }, { :character_ids => [] })
   end
 end

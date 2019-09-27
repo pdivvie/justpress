@@ -1,0 +1,89 @@
+<%= link_to fa_icon('plus'), new_match_path %>
+<% if policy(@players).new? %>
+  <%= link_to fa_icon('user-plus'), new_player_path %>
+<% end %>
+
+<hr>
+
+<nav class="breadcrumb">
+  <%= link_to 'Match Database', matches_path, class: 'breadcrumb-item' %>
+  <span class="breadcrumb-item active"><%= @P1user %>'s Matches</span>
+
+  <span class="ml-auto">
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select A Game
+      </a>
+      <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdownMenuLink">
+        <% Game.order('title ASC').each do |game| %>
+          <%= link_to game.title, game_path(game), class: "dropdown-item" %>
+        <% end %>
+      </div>
+    </li>
+  </span>
+
+  <span class="ml-auto">
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select A Character (future feature)
+      </a>
+      <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdownMenuLink">
+
+      </div>
+    </li>
+  </span>
+  <span class="ml-auto">
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select A Player
+      </a>
+      <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdownMenuLink">
+        <% Player.order('username ASC').each do |player| %>
+          <%= link_to player.username, players_path(P1: player.username ), class: "dropdown-item" %>
+        <% end %>
+      </div>
+    </li>
+  </span>
+</nav>
+
+<div class="card">
+
+    <% @players.each do |player| %>
+      <% player.matches.order('created_at DESC').each do |match| %>
+        <div class="row">
+          <div class="col-md-3">
+            <p><%= link_to match.game.title, game_path(match.game_id) %></p>
+          </div>
+          <div class="col-md-2">
+            <% if match.player_ids[0] != nil %>
+              <%= link_to match.players[0].username, players_path(P1: match.players[0].username ) %>
+            <% else %>
+              Unknown Player
+            <% end %>
+          </div>
+
+          <div class="col-md-1">
+            vs.
+          </div>
+
+          <div class="col-md-2">
+            <% if match.player_ids[1] != nil %>
+              <%= link_to match.players[1].username, players_path(P1: match.players[1].username) %>
+            <% else %>
+              Unknown Player
+            <% end %>
+          </div>
+
+          <div class="col-md-2">
+          </div>
+
+          <div class="col-md-2">
+            <%= link_to fa_icon('play'), match.link, target: :_blank %>
+            <% if policy(match).update? %>
+              <%= link_to fa_icon('pencil'), edit_match_path(match) %>
+              <%= link_to fa_icon('trash'), match, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </div>
+        </div>
+      <hr>
+      <% end %>
+    <% end %>
+
+</div>
