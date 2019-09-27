@@ -3,7 +3,14 @@ class MatchesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @matches = Match.all
+    if params.has_key?(:game_query)
+      @game_query = Match.find_by_game_id(params[:game_query])
+      @game_id = @game_query.game_id
+      @matches = Match.all.where(game_id: @game_id)
+    else
+      @matches = Match.all
+    end
+
     @players = Player.all
   end
 
@@ -58,6 +65,6 @@ class MatchesController < ApplicationController
   end
 
   def match_params
-    params.require(:match).permit(:link, :game_id, { :player_ids => [] }, :P1)
+    params.require(:match).permit(:link, :game_id, { :player_ids => [] })
   end
 end
