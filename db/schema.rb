@@ -44,13 +44,6 @@ ActiveRecord::Schema.define(version: 2019_09_20_091935) do
     t.index ["user_id"], name: "index_matches_on_user_id"
   end
 
-  create_table "matches_players", id: false, force: :cascade do |t|
-    t.bigint "player_id", null: false
-    t.bigint "match_id", null: false
-    t.index ["match_id", "player_id"], name: "index_matches_players_on_match_id_and_player_id"
-    t.index ["player_id", "match_id"], name: "index_matches_players_on_player_id_and_match_id"
-  end
-
   create_table "players", force: :cascade do |t|
     t.string "username"
     t.datetime "created_at", null: false

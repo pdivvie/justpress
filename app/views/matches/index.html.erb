@@ -52,11 +52,7 @@
       </div>
 
       <div class="col-md-2">
-        <% if match.player_ids[0] != nil %>
-          <%= link_to match.players[0].username, players_path(P1: match.players[0].username ) %>
-        <% else %>
-          Unknown Player
-        <% end %>
+
       </div>
 
       <div class="col-md-1">
@@ -64,11 +60,7 @@
       </div>
 
       <div class="col-md-2">
-        <% if match.player_ids[1] != nil %>
-          <%= link_to match.players[1].username, players_path(P1: match.players[1].username) %>
-        <% else %>
-          Unknown Player
-        <% end %>
+
       </div>
 
       <div class="col-md-2">
