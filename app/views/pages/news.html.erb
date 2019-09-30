@@ -40,8 +40,8 @@
       </div>
 
       <div class="col-md-2">
-        <% if match.player_ids[0] != nil %>
-          <%= link_to match.players[0].username, players_path(P1: match.players[0].username ) %>
+        <% if match.p1_name != nil %>
+          <%= link_to match.p1_name, matches_path(P1: match.p1_name) %>
         <% else %>
           Unknown Player
         <% end %>
@@ -52,8 +52,8 @@
       </div>
 
       <div class="col-md-2">
-        <% if match.player_ids[1] != nil %>
-          <%= link_to match.players[1].username, players_path(P1: match.players[1].username) %>
+        <% if match.p2_name != nil %>
+          <%= link_to match.p2_name, matches_path(P1: match.p2_name) %>
         <% else %>
           Unknown Player
         <% end %>

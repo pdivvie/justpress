@@ -2,13 +2,7 @@ class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params.has_key?(:P1)
-      @P1 = Player.find_by_username(params[:P1])
-      @P1user = @P1.username
-      @players = Player.all.where(username: @P1user)
-    else
-      @players = Player.all
-    end
+    @players = Player.all
   end
 
   def show

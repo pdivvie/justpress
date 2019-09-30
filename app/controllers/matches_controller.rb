@@ -7,6 +7,11 @@ class MatchesController < ApplicationController
       @game_query = Match.find_by_game_id(params[:game_query])
       @game_id = @game_query.game_id
       @matches = Match.all.where(game_id: @game_id)
+    elsif params.has_key?(:P1)
+      @P1 = Player.find_by_username(params[:P1])
+      @P1user = @P1.username
+      @matches = Match.all.where(p1_name: @P1user)
+      @matches = Match.where("p1_name = ? OR p2_name = ?", @P1user, @P1user)
     else
       @matches = Match.all
     end
@@ -65,6 +70,6 @@ class MatchesController < ApplicationController
   end
 
   def match_params
-    params.require(:match).permit(:link, :game_id)
+    params.require(:match).permit(:link, :game_id, :user_id, :p1_name, :p2_name, :p1_character, :p2_character)
   end
 end

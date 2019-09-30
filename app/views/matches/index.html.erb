@@ -2,6 +2,9 @@
 <% if policy(@players).new? %>
   <%= link_to fa_icon('user-plus'), new_player_path %>
 <% end %>
+<% if policy(@players).destroy? %>
+  <%= link_to fa_icon('user'), players_path %>
+<% end %>
 
 <hr>
 
@@ -37,7 +40,7 @@
       </a>
       <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdownMenuLink">
         <% Player.order('username ASC').each do |player| %>
-          <%= link_to player.username, players_path(P1: player.username ), class: "dropdown-item" %>
+          <%= link_to player.username, matches_path(P1: player.username ), class: "dropdown-item" %>
         <% end %>
       </div>
     </li>
@@ -52,7 +55,11 @@
       </div>
 
       <div class="col-md-2">
-
+        <% if match.p1_name != nil %>
+          <%= link_to match.p1_name, matches_path(P1: match.p1_name) %>
+        <% else %>
+          Unknown Player
+        <% end %>
       </div>
 
       <div class="col-md-1">
@@ -64,7 +71,11 @@
       </div>
 
       <div class="col-md-2">
-
+        <% if match.p2_name != nil %>
+          <%= link_to match.p2_name, matches_path(P1: match.p2_name) %>
+        <% else %>
+          Unknown Player
+        <% end %>
       </div>
 
       <div class="col-md-2">
