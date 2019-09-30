@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_20_091935) do
+ActiveRecord::Schema.define(version: 2019_09_27_133721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,22 @@ ActiveRecord::Schema.define(version: 2019_09_20_091935) do
     t.datetime "updated_at", null: false
     t.bigint "topic_id"
     t.index ["topic_id"], name: "index_articles_on_topic_id"
+  end
+
+  create_table "characters", force: :cascade do |t|
+    t.string "title"
+    t.string "icon"
+    t.bigint "game_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_characters_on_game_id"
+  end
+
+  create_table "characters_matches", id: false, force: :cascade do |t|
+    t.bigint "character_id", null: false
+    t.bigint "match_id", null: false
+    t.index ["character_id", "match_id"], name: "index_characters_matches_on_character_id_and_match_id"
+    t.index ["match_id", "character_id"], name: "index_characters_matches_on_match_id_and_character_id"
   end
 
   create_table "games", force: :cascade do |t|
@@ -98,6 +114,7 @@ ActiveRecord::Schema.define(version: 2019_09_20_091935) do
   end
 
   add_foreign_key "articles", "topics"
+  add_foreign_key "characters", "games"
   add_foreign_key "matches", "games"
   add_foreign_key "matches", "users"
 end
