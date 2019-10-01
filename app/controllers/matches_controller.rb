@@ -10,8 +10,11 @@ class MatchesController < ApplicationController
     elsif params.has_key?(:P1)
       @P1 = Player.find_by_username(params[:P1])
       @P1user = @P1.username
-      @matches = Match.all.where(p1_name: @P1user)
       @matches = Match.where("p1_name = ? OR p2_name = ?", @P1user, @P1user)
+    elsif params.has_key?(:C1)
+      @C1 = Character.find_by_title(params[:C1])
+      @C1icon = @C1.icon
+      @matches = Match.where("p1_character = ? OR p2_character = ?", @C1icon, @C1icon)
     else
       @matches = Match.all
     end
