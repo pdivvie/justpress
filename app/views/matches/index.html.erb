@@ -29,7 +29,9 @@
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select A Character (future feature)
       </a>
       <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdownMenuLink">
-
+        <% Character.order('title ASC').each do |character| %>
+          <%= link_to character.title, matches_path(C1: character.title ), class: "dropdown-item" %>
+        <% end %>
       </div>
     </li>
   </span>
@@ -63,7 +65,13 @@
       </div>
 
       <div class="col-md-1">
-
+        <% if match.p1_character != nil %>
+          <div class="avatar">
+            <%= image_tag(match.p1_character, size: 64) %>
+          </div>
+        <% else %>
+          Unknown Character
+        <% end %>
       </div>
 
       <div class="col-md-1">
@@ -71,7 +79,13 @@
       </div>
 
       <div class="col-md-1">
-
+         <% if match.p2_character != nil %>
+          <div class="avatar">
+            <%= image_tag(match.p2_character, size: 64) %>
+          </div>
+        <% else %>
+          Unknown Character
+        <% end %>
       </div>
 
       <div class="col-md-2">

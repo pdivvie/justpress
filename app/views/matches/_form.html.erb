@@ -32,15 +32,43 @@
     %>
   </div>
 
-  <div class="form-group">
-    <%= form.label "Select Player 1" %>
-    <%= form.select :p1_name, Player.all.collect { |player| [ player.username, player.username ] }, include_blank: true, class: 'form-control' %>
+  <div class="row">
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label "Select Player 1" %>
+        <%= form.select :p1_name, Player.all.collect { |player| [ player.username, player.username ] }, include_blank: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label "Player 1 Character" %>
+        <%= form.select :p1_character, Character.all.collect { |character| [ character.title, character.icon ] }, include_blank: true, class: 'form-control' %>
+      </div>
+    </div>
+
   </div>
 
-  <div class="form-group">
-    <%= form.label "Select Player 2" %>
-    <%= form.select :p2_name, Player.all.collect { |player| [ player.username, player.username ] }, include_blank: true, class: 'form-control' %>
+  <div class="row">
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label "Select Player 2" %>
+        <%= form.select :p2_name, Player.all.collect { |player| [ player.username, player.username ] }, include_blank: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label "Player 2 Character" %>
+        <%= form.select :p2_character, Character.all.collect { |character| [ character.title, character.icon ] }, include_blank: true, class: 'form-control' %>
+      </div>
+    </div>
+
   </div>
+
+  
 
 
   <div class="form-group">
