@@ -20,6 +20,7 @@ class MatchesController < ApplicationController
     end
 
     @players = Player.all
+    @characters = Character.all
   end
 
   def show

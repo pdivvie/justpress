@@ -1,1 +1,19 @@
 <h4>Players</h4>
+<hr>
+<div class="row">
+  
+  <% Player.order('username ASC').each do |player| %>
+    <div class="col-md-2">
+      <%= link_to player.username, player_path(player) %>
+    </div>
+    <div class="col-md-2">
+      <% if policy(player).update? %>
+        <%= link_to fa_icon('pencil'), edit_player_path(player), :style=>'color:#FFFFFF;' %>
+        <%= link_to fa_icon('trash'), player, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </div>
+    <br>
+    <br>
+  <% end %>
+  
+</div>

@@ -5,6 +5,9 @@
 <% if policy(@players).destroy? %>
   <%= link_to fa_icon('user'), players_path %>
 <% end %>
+<% if policy(@characters).destroy? %>
+  <%= link_to fa_icon('drupal'), characters_path %>
+<% end %>
 
 <hr>
 
