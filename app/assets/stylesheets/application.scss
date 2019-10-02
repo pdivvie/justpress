@@ -143,3 +143,9 @@ body a:hover {
   padding-top: 1rem;
   text-align: right; 
 }
+
+.scrollable-menu {
+  height: auto;
+  max-height: 200px;
+  overflow-x: hidden;
+}

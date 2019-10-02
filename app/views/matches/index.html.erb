@@ -29,8 +29,7 @@
 
   <span class="ml-auto">
     <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select A Character (future feature)
-      </a>
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select A Character</a>
       <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdownMenuLink">
         <% Character.order('title ASC').each do |character| %>
           <%= link_to character.title, matches_path(C1: character.title ), class: "dropdown-item" %>
@@ -52,7 +51,7 @@
   </span>
 </nav>
 
-<div class="card matches-card">
+<div class="card matches-card d-none d-lg-block">
   <% @matches.order('created_at DESC').each do |match| %>
     <div class="row">
       <div class="col-md-2">
@@ -90,8 +89,8 @@
       <div class="col-md-1">
          <% if match.p2_character != nil %>
           <div class="avatar">
-            <%= image_tag(match.p2_character, size: 64) 
-            %>
+            <%= image_tag(match.p2_character, size: 64) %>
+            
           </div>
         <% else %>
           Unknown Character
@@ -120,6 +119,35 @@
     </div>
 
     <hr>
+
+  <% end %>
+</div>
+
+<div class="card matches-card d-none d-block d-lg-none">
+  <% @matches.order('created_at DESC').each do |match| %>
+    
+    <div class="row">
+      <div class="col big-box">
+        <div class="row">
+          <div class="col mini-box">1</div>
+          <div class="col mini-box">2</div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="row">
+          <div class="col mini-box">1</div>
+        </div>
+        <div class="row">
+          <div class="col mini-box">2</div>
+        </div>
+        <div class="row">
+          <div class="col mini-box">3</div>
+
+        </div>
+      </div>
+
+    </div>
 
   <% end %>
 </div>
