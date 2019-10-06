@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="col-9">
+    <div class="row">
+      <div class="col-3">
+        <% if match.p1_character != nil %>
+          <div class="avatar">
+            <%= image_tag(match.p1_character, size: 64) %>
+          </div>
+        <% else %>
+          Unknown Character
+        <% end %>
+      </div>
+      <div class="col-9">
+        <% if match.p1_name != nil %>
+          <div class="p-alt2">
+            <p><%= link_to match.p1_name, matches_path(P1: match.p1_name) %><p>
+          </div>
+        <% else %>
+          Unknown Player
+        <% end %>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div class="col-3">
+        <% if match.p2_character != nil %>
+          <div class="avatar">
+            <%= image_tag(match.p2_character, size: 64) %>
+          </div>
+        <% else %>
+          Unknown Character
+        <% end %>
+      </div>
+      <div class="col-9">
+        <% if match.p2_name != nil %>
+          <div class="p-alt2">
+            <p><%= link_to match.p2_name, matches_path(P1: match.p2_name) %><p>
+          </div>
+        <% else %>
+          Unknown Player
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-3">
+    <div class="row">
+      <div class="col-12">
+        <% if policy(match).update? %>
+          <%= link_to fa_icon('pencil'), edit_match_path(match) %>
+        <% else%>
+        <br>
+        <% end %>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div class="col-12"><%= link_to fa_icon('play'), match.link, target: :_blank %></div>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div class="col-12">
+        <% if policy(match).update? %>
+          <%= link_to fa_icon('trash'), match, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<hr>
