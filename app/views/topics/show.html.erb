@@ -5,7 +5,7 @@
   <hr>
   <div class="row text-center">
     <% if @articles.count != 0 %>
-      <%= render partial: 'shared/article', collection: @articles %>
+      <%= render partial: 'shared/article', collection: @articles, locals: {height: 'auto', width: '100%'} %>
     <% else %>
       <h3>There is no news at the moment</h3>
     <% end %>
