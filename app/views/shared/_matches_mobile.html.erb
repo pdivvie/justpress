@@ -12,7 +12,7 @@
       </div>
       <div class="col-9">
         <% if match.p1_name != nil %>
-          <div class="p-alt2">
+          <div class="p-alt">
             <p><%= link_to match.p1_name, matches_path(P1: match.p1_name) %><p>
           </div>
         <% else %>
@@ -35,7 +35,7 @@
       </div>
       <div class="col-9">
         <% if match.p2_name != nil %>
-          <div class="p-alt2">
+          <div class="p-alt">
             <p><%= link_to match.p2_name, matches_path(P1: match.p2_name) %><p>
           </div>
         <% else %>
