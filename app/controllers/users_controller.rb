@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:match).permit(:username, :steamid, :psnid, :gamertag)
+    params.require(:match).permit(:username, :steamid, :psnid, :gamertag, :switchfc)
   end
 
 end
