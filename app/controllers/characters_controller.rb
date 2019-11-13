@@ -58,7 +58,7 @@ class CharactersController < ApplicationController
   end
 
   def match_params
-    params.require(:character).permit(:title, :icon)
+    params.require(:character).permit(:title, :icon, :game_id)
   end
 end
 
