@@ -21,22 +21,28 @@
       </a>
       <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdownMenuLink">
         <% Game.order('title ASC').each do |game| %>
-          <%= link_to game.title, game_path(game), class: "dropdown-item" %>
+          <%= link_to game.title, matches_path(game_query: game.id), class: "dropdown-item" %>
         <% end %>
       </div>
     </li>
   </span>
 
-  <span class="ml-auto">
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select A Character</a>
-      <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdownMenuLink">
-        <% Character.order('title ASC').each do |character| %>
-          <%= link_to character.title, matches_path(C1: character.title ), class: "dropdown-item" %>
-        <% end %>
-      </div>
-    </li>
-  </span>
+  
+    <span class="ml-auto">
+    <% if params.has_key?(:game_query) %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select A Character</a>
+        <div class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdownMenuLink">
+          <% Character.order('title ASC').each do |character| %>
+            <% if character.game_id == @game_query.game_id %>      
+              <%= link_to character.title, matches_path(C1: character.title), class: "dropdown-item" %>
+            <% end %>
+          <% end %>
+        </div>
+      </li>
+      <% end %>
+    </span>
+    
 
   <span class="ml-auto">
     <li class="nav-item dropdown">
