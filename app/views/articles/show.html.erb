@@ -1,8 +1,10 @@
 <div class="container article-container">
   <div class="row">
-    <div class="col-md-12">
-      <%= image_tag @article.main_image.url, width: '100%' %>
-    </div>
+    <% if @article.main_image.url != nil %>
+      <div class="col-md-12">
+        <%= image_tag @article.main_image.url, width: '100%' %>
+      </div>
+    <% end %>
   </div>
   <div class="row"></div>
     <div class="col-md-12">
