@@ -14,11 +14,6 @@
             <div class="card">
               <%= link_to game, class: 'image_link' do %>
                 <%= image_tag game.cover_image, class: 'card-img-top img-fluid' %>
-                <div class="card-img-overlay image_text">
-                  <h4 class="card-title"><%= game.title %></h4>
-                  <br>
-
-                </div>
 
                 <div class="image_icon">
                   <% if policy(game).update? %>
