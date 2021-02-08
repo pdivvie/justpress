@@ -61,7 +61,7 @@ gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 
 # integration of image uploaders with amazon s3 storage
-gem 'carrierwave', '~> 1.3', '>= 1.3.1'
+gem 'carrierwave', '~> 1.3'
 gem 'mini_magick', '~> 4.9', '>= 4.9.5'
 gem 'carrierwave-aws', '~> 1.3'
 
