@@ -4,8 +4,11 @@
     <hr>
   <% end %>
 
-  <div class="row">
-    <% @games.each do |game| %>
+  
+    <% @games.each_with_index do |game, i| %>
+      <% if i%2 == 0 %>
+        <div class="row">
+      <% end %> 
 
       <div class="col-md-6">
 
@@ -53,10 +56,11 @@
       </div>
 
       <br>
-
-
+      <% if i%2 != 0 %>
+        </div>
+      <% end %>
     <% end %>
-  </div>
+  
 </div>
 
 
