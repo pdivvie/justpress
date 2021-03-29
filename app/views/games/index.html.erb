@@ -13,19 +13,17 @@
       <div class="col-md-6">
 
         <div class="d-none d-xl-block">
-          <div class="game-padding">
-            <div class="card">
-              <%= link_to game, class: 'image_link' do %>
-                <%= image_tag game.cover_image, class: 'card-img-top img-fluid' %>
+          <div class="card">
+            <%= link_to game, class: 'image_link' do %>
+              <%= image_tag game.cover_image, class: 'card-img-top img-fluid' %>
 
-                <div class="image_icon">
-                  <% if policy(game).update? %>
-                    <%= link_to fa_icon('pencil'), edit_game_path(game) %>
-                    <%= link_to fa_icon('trash'), game, method: :delete, data: { confirm: 'Are you sure?' } %>
-                  <% end %>
-                </div>
-              <% end %>
-            </div>
+              <div class="image_icon">
+                <% if policy(game).update? %>
+                  <%= link_to fa_icon('pencil'), edit_game_path(game) %>
+                  <%= link_to fa_icon('trash'), game, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %>
+              </div>
+            <% end %>
           </div>
         </div>
 
